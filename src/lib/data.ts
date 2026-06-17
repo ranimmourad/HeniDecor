@@ -49,7 +49,7 @@ export const products: Product[] = [
     name: "Salon d'angle Bouclette Crème",
     category: "salons",
     price: 4200,
-    images: ["/images/salon-cream-channel-1.png", "/images/salon-cream-modular-1.png", "/images/salon-cream-modular-2.png"],
+    images: ["/images/salon-cream-modular-1.png", "/images/salon-cream-modular-2.png"],
     description:
       "Un salon d'angle généreux habillé d'un tissu bouclette crème, aux lignes douces et matelassées. Son assise profonde et ses coussins moelleux invitent à la détente dans une ambiance chaleureuse et contemporaine.",
     specs: [
