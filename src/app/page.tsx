@@ -12,18 +12,18 @@ export default function HomePage() {
     <>
       {/* HERO */}
       <section id="hero-section" className="relative">
-        {/* Reverted to original wide aspect ratio */}
-        <div className="relative aspect-[16/10] w-full sm:aspect-[16/8] lg:aspect-[16/7]">
+        {/* Changed mobile aspect ratio to 4/3 so it's shorter and buttons don't cover the room */}
+        <div className="relative aspect-[4/3] w-full sm:aspect-[16/8] lg:aspect-[16/7]">
           <Image
             src="/images/hero.png"
             alt="Showroom Heni Décor"
             fill
             priority
             sizes="100vw"
-            /* object-top forces the image to show the ceiling/top, cropping the floor instead */
             className="object-cover object-top"
           />
-          <div className="absolute inset-x-0 bottom-0 flex justify-center pb-8 sm:pb-12">
+          {/* Reduced bottom padding on mobile (pb-4) so buttons sit nicely at the bottom */}
+          <div className="absolute inset-x-0 bottom-0 flex justify-center pb-4 sm:pb-12">
             <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
               <Link href="/collection" className="btn-primary">
                 Découvrir la collection
@@ -77,7 +77,8 @@ export default function HomePage() {
       <section id="contact-preview" className="shell py-20">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div className="relative aspect-[4/3] overflow-hidden">
-            <Image src="/images/salon-cream-channel-1.png" alt="Salon Heni Décor" fill sizes="(max-width:1024px) 100vw, 50vw" className="object-cover" />
+            {/* Changed image to salon-cream-large-2.png */}
+            <Image src="/images/salon-cream-large-2.png" alt="Salon Heni Décor" fill sizes="(max-width:1024px) 100vw, 50vw" className="object-cover" />
           </div>
           <div>
             <p className="eyebrow">Parlons de votre intérieur</p>
