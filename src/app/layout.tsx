@@ -53,7 +53,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="font-sans">
         <StoreProvider>
           <Navbar />
-          <main>{children}</main>
+          {/* Added 80px padding to push content below the fixed navbar */}
+          <main style={{ paddingTop: '80px' }}>{children}</main>
           <Footer />
         </StoreProvider>
       </body>
