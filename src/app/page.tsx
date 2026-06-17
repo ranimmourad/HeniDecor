@@ -12,8 +12,8 @@ export default function HomePage() {
     <>
       {/* HERO */}
       <section id="hero-section" className="relative">
-        {/* Changed mobile aspect ratio to 4/3 so it's shorter and buttons don't cover the room */}
-        <div className="relative aspect-[4/3] w-full sm:aspect-[16/8] lg:aspect-[16/7]">
+        {/* Mobile: tall vertical image. Desktop: wide banner */}
+        <div className="relative aspect-[3/4] w-full sm:aspect-[16/8] lg:aspect-[16/7]">
           <Image
             src="/images/hero.png"
             alt="Showroom Heni Décor"
@@ -22,9 +22,10 @@ export default function HomePage() {
             sizes="100vw"
             className="object-cover object-top"
           />
-          {/* Reduced bottom padding on mobile (pb-4) so buttons sit nicely at the bottom */}
-          <div className="absolute inset-x-0 bottom-0 flex justify-center pb-4 sm:pb-12">
-            <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
+          
+          {/* Desktop buttons (overlayed at the bottom, hidden on mobile) */}
+          <div className="absolute inset-x-0 bottom-0 hidden justify-center pb-12 sm:flex">
+            <div className="flex gap-4">
               <Link href="/collection" className="btn-primary">
                 Découvrir la collection
               </Link>
@@ -33,6 +34,16 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
+        </div>
+
+        {/* Mobile buttons (placed BELOW the image, hidden on desktop) */}
+        <div className="flex flex-col gap-3 px-6 py-6 sm:hidden">
+          <Link href="/collection" className="btn-primary">
+            Découvrir la collection
+          </Link>
+          <Link href="/contact" className="btn-outline">
+            Nous contacter
+          </Link>
         </div>
       </section>
 
