@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react"; // Added useEffect and useRef
 import { useStore } from "@/lib/store";
 import { CartIcon, HeartIcon, MenuIcon, CloseIcon } from "./Icons";
 
@@ -17,12 +17,47 @@ export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const { cartCount, favorites } = useStore();
+  
+  // --- SMART HIDE/SHOW LOGIC ---
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Ignore tiny scrolls (like on Mac trackpads)
+      if (Math.abs(currentScrollY - lastScrollY.current) < 10) return;
+
+      if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
+        // Scrolling down & past navbar height -> HIDE
+        setIsVisible(false);
+      } else {
+        // Scrolling up -> SHOW
+        setIsVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY > 0 ? currentScrollY : 0;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  // ----------------------------
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-ink/10 bg-white">
+    /* 
+      Changed from 'sticky' to 'fixed'. 
+      Added transition-transform and dynamic translate-y classes 
+    */
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 border-b border-ink/10 bg-white transition-transform duration-300 ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <nav className="shell flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center" aria-label="Heni Décor — Accueil">
           <Image src="/images/logo.png" alt="Heni Décor" width={120} height={48} priority className="h-12 w-auto" />

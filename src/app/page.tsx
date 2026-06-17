@@ -11,7 +11,8 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section id="hero-section" className="relative">
+      {/* Added mt-20 here to account for the fixed navbar height */}
+      <section id="hero-section" className="relative mt-20">
         <div className="relative aspect-[16/10] w-full sm:aspect-[16/8] lg:aspect-[16/7]">
           <Image
             src="/images/hero.png"
