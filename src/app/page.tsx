@@ -12,14 +12,15 @@ export default function HomePage() {
     <>
       {/* HERO */}
       <section id="hero-section" className="relative">
-        {/* Changed aspect ratio to 3/4 and 4/5 to fit the vertical image */}
-        <div className="relative aspect-[3/4] w-full sm:aspect-[4/5] lg:aspect-[3/4]">
+        {/* Reverted to original wide aspect ratio */}
+        <div className="relative aspect-[16/10] w-full sm:aspect-[16/8] lg:aspect-[16/7]">
           <Image
             src="/images/hero.png"
             alt="Showroom Heni Décor"
             fill
             priority
             sizes="100vw"
+            /* object-top forces the image to show the ceiling/top, cropping the floor instead */
             className="object-cover object-top"
           />
           <div className="absolute inset-x-0 bottom-0 flex justify-center pb-8 sm:pb-12">
