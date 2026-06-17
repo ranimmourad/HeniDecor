@@ -11,8 +11,8 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      {/* Added inline style to guarantee it pushes below the navbar */}
-      <section id="hero-section" className="relative" style={{ marginTop: '80px' }}>
+      {/* Using 100px padding to guarantee it sits below the fixed navbar */}
+      <section id="hero-section" className="relative" style={{ paddingTop: '100px' }}>
         <div className="relative aspect-[16/10] w-full sm:aspect-[16/8] lg:aspect-[16/7]">
           <Image
             src="/images/hero.png"
