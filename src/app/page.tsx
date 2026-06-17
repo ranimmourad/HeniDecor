@@ -77,8 +77,7 @@ export default function HomePage() {
       <section id="contact-preview" className="shell py-20">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div className="relative aspect-[4/3] overflow-hidden">
-            {/* Changed image to salon-cream-large-2.png */}
-            <Image src="/images/salon-cream-large-2.png" alt="Salon Heni Décor" fill sizes="(max-width:1024px) 100vw, 50vw" className="object-cover" />
+            <Image src="/logo.png" alt="Salon Heni Décor" fill sizes="(max-width:1024px) 100vw, 50vw" className="object-cover" />
           </div>
           <div>
             <p className="eyebrow">Parlons de votre intérieur</p>

@@ -14,7 +14,7 @@ export const categories: Category[] = [
     slug: "salons",
     name: "Salons",
     description: "Canapés et ensembles confortables pour un séjour chaleureux.",
-    image: "/images/salon-cream-channel-1.png",
+    image: "/images/salon-cream-large-2.png",
   },
   {
     slug: "salles-a-manger",
