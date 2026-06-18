@@ -11,20 +11,34 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      {/* style={{ marginTop: '-80px' }} perfectly cancels out the layout padding */}
-      <section id="hero-section" className="relative" style={{ marginTop: '-80px' }}>
-        <div className="relative h-[70vh] w-full sm:h-auto sm:aspect-[16/8] lg:aspect-[16/7]">
+      {/* Increased negative margin to -100px to guarantee it touches the navbar */}
+      <section id="hero-section" className="relative" style={{ marginTop: '-100px' }}>
+        
+        {/* MOBILE HERO: Natural height, no empty box spacing, no cropping */}
+        <div className="w-full sm:hidden">
+          <Image
+            src="/images/hero.png"
+            alt="Showroom Heni Décor"
+            width={800}
+            height={1200}
+            priority
+            className="w-full h-auto"
+          />
+        </div>
+
+        {/* DESKTOP HERO: Wide banner with fill */}
+        <div className="relative hidden w-full sm:block aspect-[16/8] lg:aspect-[16/7]">
           <Image
             src="/images/hero.png"
             alt="Showroom Heni Décor"
             fill
             priority
             sizes="100vw"
-            className="object-contain sm:object-cover sm:object-top"
+            className="object-cover object-top"
           />
           
           {/* Desktop buttons */}
-          <div className="absolute inset-x-0 bottom-0 hidden justify-center pb-12 sm:flex">
+          <div className="absolute inset-x-0 bottom-0 flex justify-center pb-12">
             <div className="flex gap-4">
               <Link href="/collection" className="btn-primary">
                 Découvrir la collection
@@ -36,8 +50,8 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Mobile buttons - changed pb-6 to pb-0 to remove bottom gap */}
-        <div className="flex flex-col gap-3 px-6 pt-0 pb-0 sm:hidden">
+        {/* Mobile buttons - no padding at all */}
+        <div className="flex flex-col gap-3 px-6 sm:hidden">
           <Link href="/collection" className="btn-primary">
             Découvrir la collection
           </Link>
