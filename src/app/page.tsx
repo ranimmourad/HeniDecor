@@ -11,8 +11,8 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section id="hero-section" className="relative">
-        {/* Mobile: 70vh height to fit vertical image. Desktop: wide banner */}
+      {/* -mt-20 pulls the image up to touch the navbar perfectly */}
+      <section id="hero-section" className="relative -mt-20">
         <div className="relative h-[70vh] w-full sm:h-auto sm:aspect-[16/8] lg:aspect-[16/7]">
           <Image
             src="/images/hero.png"
@@ -20,11 +20,10 @@ export default function HomePage() {
             fill
             priority
             sizes="100vw"
-            /* object-contain on mobile = NO CROPPING. object-cover on desktop = normal banner */
             className="object-contain sm:object-cover sm:object-top"
           />
           
-          {/* Desktop buttons (overlayed at the bottom, hidden on mobile) */}
+          {/* Desktop buttons */}
           <div className="absolute inset-x-0 bottom-0 hidden justify-center pb-12 sm:flex">
             <div className="flex gap-4">
               <Link href="/collection" className="btn-primary">
@@ -37,8 +36,8 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Mobile buttons (placed BELOW the image, hidden on desktop) */}
-        <div className="flex flex-col gap-3 px-6 py-6 sm:hidden">
+        {/* Mobile buttons - changed py-6 to pt-0 pb-6 to remove the top gap */}
+        <div className="flex flex-col gap-3 px-6 pt-0 pb-6 sm:hidden">
           <Link href="/collection" className="btn-primary">
             Découvrir la collection
           </Link>
@@ -89,7 +88,8 @@ export default function HomePage() {
       <section id="contact-preview" className="shell py-20">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div className="relative aspect-[4/3] overflow-hidden">
-            <Image src="/image/logo.png" alt="Salon Heni Décor" fill sizes="(max-width:1024px) 100vw, 50vw" className="object-cover" />
+            {/* Fixed: Restored the correct image path here */}
+            <Image src="/images/salon-cream-channel-1.png" alt="Salon Heni Décor" fill sizes="(max-width:1024px) 100vw, 50vw" className="object-cover" />
           </div>
           <div>
             <p className="eyebrow">Parlons de votre intérieur</p>
