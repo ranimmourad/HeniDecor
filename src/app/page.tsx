@@ -12,15 +12,16 @@ export default function HomePage() {
     <>
       {/* HERO */}
       <section id="hero-section" className="relative">
-        {/* Mobile: tall vertical image. Desktop: wide banner */}
-        <div className="relative aspect-[3/4] w-full sm:aspect-[16/8] lg:aspect-[16/7]">
+        {/* Mobile: 70vh height to fit vertical image. Desktop: wide banner */}
+        <div className="relative h-[70vh] w-full sm:h-auto sm:aspect-[16/8] lg:aspect-[16/7]">
           <Image
             src="/images/hero.png"
             alt="Showroom Heni Décor"
             fill
             priority
             sizes="100vw"
-            className="object-cover object-top"
+            /* object-contain on mobile = NO CROPPING. object-cover on desktop = normal banner */
+            className="object-contain sm:object-cover sm:object-top"
           />
           
           {/* Desktop buttons (overlayed at the bottom, hidden on mobile) */}
@@ -88,7 +89,7 @@ export default function HomePage() {
       <section id="contact-preview" className="shell py-20">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div className="relative aspect-[4/3] overflow-hidden">
-            <Image src="/logo.png" alt="Salon Heni Décor" fill sizes="(max-width:1024px) 100vw, 50vw" className="object-cover" />
+            <Image src="/image/logo.png" alt="Salon Heni Décor" fill sizes="(max-width:1024px) 100vw, 50vw" className="object-cover" />
           </div>
           <div>
             <p className="eyebrow">Parlons de votre intérieur</p>
