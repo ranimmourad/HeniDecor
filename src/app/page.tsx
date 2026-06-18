@@ -11,8 +11,8 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      {/* Increased negative margin to -100px to guarantee it touches the navbar */}
-      <section id="hero-section" className="relative" style={{ marginTop: '-100px' }}>
+      {/* Changed to exactly -80px to touch the navbar perfectly without hiding behind it */}
+      <section id="hero-section" className="relative" style={{ marginTop: '-80px' }}>
         
         {/* MOBILE HERO: Natural height, no empty box spacing, no cropping */}
         <div className="w-full sm:hidden">
@@ -50,7 +50,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Mobile buttons - no padding at all */}
+        {/* Mobile buttons */}
         <div className="flex flex-col gap-3 px-6 sm:hidden">
           <Link href="/collection" className="btn-primary">
             Découvrir la collection
