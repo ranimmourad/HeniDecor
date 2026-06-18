@@ -11,10 +11,9 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      {/* Changed to exactly -80px to touch the navbar perfectly without hiding behind it */}
-      <section id="hero-section" className="relative" style={{ marginTop: '-80px' }}>
+      <section id="hero-section" className="relative">
         
-        {/* MOBILE HERO: Natural height, no empty box spacing, no cropping */}
+        {/* MOBILE HERO */}
         <div className="w-full sm:hidden">
           <Image
             src="/images/hero.png"
@@ -26,7 +25,7 @@ export default function HomePage() {
           />
         </div>
 
-        {/* DESKTOP HERO: Wide banner with fill */}
+        {/* DESKTOP HERO */}
         <div className="relative hidden w-full sm:block aspect-[16/8] lg:aspect-[16/7]">
           <Image
             src="/images/hero.png"
@@ -50,8 +49,8 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Mobile buttons */}
-        <div className="flex flex-col gap-3 px-6 sm:hidden">
+        {/* Mobile buttons - Added pt-4 for slight spacing */}
+        <div className="flex flex-col gap-3 px-6 pt-4 sm:hidden">
           <Link href="/collection" className="btn-primary">
             Découvrir la collection
           </Link>
