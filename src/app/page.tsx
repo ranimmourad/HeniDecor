@@ -11,8 +11,8 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      {/* -mt-20 pulls the image up to touch the navbar perfectly */}
-      <section id="hero-section" className="relative -mt-20">
+      {/* style={{ marginTop: '-80px' }} perfectly cancels out the layout padding */}
+      <section id="hero-section" className="relative" style={{ marginTop: '-80px' }}>
         <div className="relative h-[70vh] w-full sm:h-auto sm:aspect-[16/8] lg:aspect-[16/7]">
           <Image
             src="/images/hero.png"
@@ -36,8 +36,8 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Mobile buttons - changed py-6 to pt-0 pb-6 to remove the top gap */}
-        <div className="flex flex-col gap-3 px-6 pt-0 pb-6 sm:hidden">
+        {/* Mobile buttons - changed pb-6 to pb-0 to remove bottom gap */}
+        <div className="flex flex-col gap-3 px-6 pt-0 pb-0 sm:hidden">
           <Link href="/collection" className="btn-primary">
             Découvrir la collection
           </Link>
@@ -88,8 +88,7 @@ export default function HomePage() {
       <section id="contact-preview" className="shell py-20">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div className="relative aspect-[4/3] overflow-hidden">
-            {/* Fixed: Restored the correct image path here */}
-            <Image src="/images/salon-cream-channel-1.png" alt="Salon Heni Décor" fill sizes="(max-width:1024px) 100vw, 50vw" className="object-cover" />
+            <Image src="/images/logo.png" alt="Logo Heni Décor" fill sizes="(max-width:1024px) 100vw, 50vw" className="object-contain" />
           </div>
           <div>
             <p className="eyebrow">Parlons de votre intérieur</p>
